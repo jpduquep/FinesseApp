@@ -4,10 +4,10 @@ public class Cuenta extends Cliente{
     private String usuario;
     private String contraseña;
     private String correo;
-    private int meta; //1 es poco intenso, 2 medio, 3 muy intenso
+    private int meta; //1 es bajar de peso, 2 mantener peso, 3 subir de peso
     private int intensidadNotificaciones;
-    public Cuenta(String nombre, double estatura, double peso, int sexo, String usuario, String contraseña, String correo, int meta, int intensidadN){
-        super(nombre,estatura,peso,sexo);
+    public Cuenta(int edad, String nombre, double estatura, double peso, int sexo, String usuario, String contraseña, String correo, int meta, int intensidadN){
+        super(edad, nombre,estatura,peso,sexo);
         this.usuario = usuario;
         this.contraseña = contraseña;
         this.correo = correo;
@@ -31,9 +31,9 @@ public class Cuenta extends Cliente{
     public void setIntensidadN(int intensidad){this.intensidadNotificaciones = intensidad;}
     public int getIntensidadN(){return this.intensidadNotificaciones;}
     
-    public static void añadirCuenta(String nombre, double estatura, double peso, int sexo, String usuario, String contraseña, String correo, int meta, int IntensidadN){
-        clientes.add(new Cuenta(nombre, estatura, peso, sexo, usuario, contraseña, correo, meta, IntensidadN));
-        InicioApp.inicios.add(new InicioApp(nombre, meta, estatura, peso, sexo));
+    public static void añadirCuenta(int edad, String nombre, double estatura, double peso, int sexo, String usuario, String contraseña, String correo, int meta, int IntensidadN, int indice){
+        clientes.add(new Cuenta(edad, nombre, estatura, peso, sexo, usuario, contraseña, correo, meta, IntensidadN));
+        InicioApp.inicios.add(new InicioApp(edad, nombre, meta, estatura, peso, sexo, indice));
     }
     
     public String toString(){

@@ -2,8 +2,10 @@ public class Cliente{
     private String nombre;
     private double estatura;
     private double peso;
-    private int sexo; //0 si es mascuino, 1 si es femenino
-    public Cliente(String n, double est, double pes, int s){
+    private int edad;
+    private int sexo; //0 si es masculino, 1 si es femenino
+    public Cliente(int edad, String n, double est, double pes, int s){
+        this.edad = edad;
         this.nombre = n;
         this.estatura = est;
         this.peso = pes;

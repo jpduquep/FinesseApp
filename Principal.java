@@ -10,6 +10,7 @@ public class Principal{
         double estatura;
         double peso;
         int sexo;
+        int edad;
         String usuario;
         String contraseña;
         String correo;
@@ -29,6 +30,10 @@ public class Principal{
         while(decision != 0){
             switch(decision){
                 case 1: //Crear Cuenta
+                
+                    System.out.println("Ingresa tu edad en años R/");
+                    edad = scan.nextInt();
+                    
                     System.out.println("Ingresa tu nombre R/");
                     scan.nextLine();
                     nom = scan.nextLine();
@@ -107,7 +112,7 @@ public class Principal{
                     }
                     salirLoop = false;
                     
-                    Cuenta.añadirCuenta(nom, estatura, peso, sexo, usuario, contraseña, correo, meta, intensidadN);
+                    Cuenta.añadirCuenta(edad, nom, estatura, peso, sexo, usuario, contraseña, correo, meta, intensidadN, contadorcuentas);
                     System.out.println(Cuenta.clientes.get(contadorcuentas).toString());
                     System.out.println("----------------------------");
                     System.out.println("Cuenta creada exitosamente");
@@ -134,8 +139,8 @@ public class Principal{
                                 System.out.println("Ingrese su contraseña (Intento " + (contadorutil2 + 1) + ")");
                                 rString2 = scan.nextLine();
                                 if(rString2.equals(Cuenta.clientes.get(x).getContraseña())){
-                                    System.out.println("----------\nAcceso\n---------- ");
-                                    InicioApp.Inicio(indiceactual);
+                                    System.out.println("----------\n  Acceso\n---------- ");
+                                    InicioApp.Inicio(indiceactual, InicioApp.inicios.get(indiceactual));
                                     break;
                                 }
                                 else{
