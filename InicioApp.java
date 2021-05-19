@@ -61,11 +61,13 @@ public class InicioApp{
                     iniciox.miLineaTiempo();
                     System.out.println("Presiona enter para salir de MI LINEA DEL TIEMPO");
                     scan.nextLine();
+                    iniciox.visual();
                     break;
                 case 5:
                     iniciox.recomendaciones();
                     System.out.println("Presiona enter para salir de RECOMENDACIONES");
                     scan.nextLine();
+                    iniciox.visual();
                     break;
                 default:
                     System.out.println("Su comando no esta en nuestra lista de opciones, intente de nuevo");
@@ -99,10 +101,62 @@ public class InicioApp{
         
         comidas.add(new Comida(horax, minutox, caloriax, comida));
         this.calorias_ingeridas += caloriax;
+        double calculo = (calorias_mantener/3);// Calorias del usuario dividido por 3 comidas
         
-        if(this.meta==1){}
-        if(this.meta==2){}
-        if(this.meta==3){}
+        if(this.meta==1){
+            if(caloriax<(calculo-130)){
+                System.out.println("Buen contenido calorico para tu meta");
+                rt = rt +30;
+            }
+            else if(caloriax<calculo){
+                System.out.println("Esta bien sin embargo debes bajarle un poquito a las calorias");
+                rt = rt + 25;
+            }
+            else if(caloriax<(calculo+200)){
+                System.out.println("Estas comiendo muchas calorias, asi no bajaras de peso!");
+                rt += 20;
+            }
+            else{
+                System.out.println("Estas comiendo demasiadas Calorias.");
+                rt += 15;
+            }
+        }
+        if(this.meta==2){
+            if(caloriax<(calculo-130)){
+                System.out.println("No estas manteniendo el peso, vas a adelgazar");
+                rt = rt +20;
+            }
+            else if(caloriax<calculo+50){
+                System.out.println("Esta balanceada la comida");
+                rt = rt + 35;
+            }
+            else if(caloriax<(calculo+200)){
+                System.out.println("Estas comiendo calorias de mas, vas a subir de peso");
+                rt += 20;
+            }
+            else{
+                System.out.println("Tu peso se va a disparar, bajale a las calorias!!!!");
+                rt += 15;
+            }
+        }
+        if(this.meta==3){
+            if(caloriax<(calculo-130)){
+                System.out.println("No estas cumpliendo el objetivo, estas adelgazando");
+                rt = rt +15;
+            }
+            else if(caloriax<calculo+50){
+                System.out.println("Esta bien la comida sin embargo debes comer un poco mas de calorias");
+                rt = rt + 25;
+            }
+            else if(caloriax<(calculo+250)){
+                System.out.println("Estas en buen camino!");
+                rt += 30;
+            }
+            else if(caloriax>=calculo+250){
+                System.out.println("Estas comiendo muchas calorias, cuidado con tu SALUD!");
+                rt += 20;
+            }
+        }
         return rt;
     }
     
@@ -123,6 +177,25 @@ public class InicioApp{
         
         ejercicios.add(new Ejercicio(horax, minutox, caloriax, ejercicio));
         this.calorias_quemadas += caloriax;
+        
+        if(this.meta==1){
+            if(caloriax<=50){rt +=5;}
+            else if(caloriax>50){rt +=10;}
+            else if(caloriax>150){rt +=20;}
+            else if(caloriax>250){rt +=30;}
+        }
+        if(this.meta==2){
+            if(caloriax<=50){rt +=20;}
+            else if(caloriax>50){rt +=25;}
+            else if(caloriax>150){rt +=20;}
+            else if(caloriax>250){rt +=10;}
+        }
+        if(this.meta==3){
+            if(caloriax<=50){rt +=20;}
+            else if(caloriax>50){rt +=15;}
+            else if(caloriax>150){rt +=10;}
+            else if(caloriax>250){rt +=5;}
+        }
         
         return rt;
     }
